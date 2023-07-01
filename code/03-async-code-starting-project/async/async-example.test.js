@@ -7,7 +7,6 @@ it('should generate a token value', (done) => {
 
   generateToken(testUserEmail, (err, token) => {
     // expect(token).toBeDefined();
-
     try {
       expect(token).toBeDefined();
       // expect(token).toBe(2);
@@ -16,4 +15,18 @@ it('should generate a token value', (done) => {
       done(err)
     }
   });
+});
+
+it('should generate a token value', () => {
+  const testUserEmail = 'test@test.com';
+
+  expect(generateTokenPromise(testUserEmail)).resolves.toBeDefined();
+});
+
+it('should generate a token value', async () => {
+  const testUserEmail = 'test@test.com';
+    
+  const token = await generateTokenPromise(testUserEmail);
+
+  expect(token).toBeDefined();
 });
